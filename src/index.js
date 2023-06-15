@@ -21,7 +21,7 @@ function verifyIfExistsAccountCpf(req, res, next) {
 	next();
 }
 
-// Abaixo função para verificação e soma das operações (saque, depósito)
+// Abaixo função para verificar e somar das operações (saque, depósito)
 function getBalance(statement) {
 	const balance = statement.reduce((acc, operation) => {
 		if (operation.type === "credit") {
@@ -34,7 +34,7 @@ function getBalance(statement) {
 	return balance;
 }
 
-//checando se o usuário possui cadastro
+//checando se o usuário está cadastrado
 app.post("/account", (req, res) => {
 	const { cpf, name } = req.body;
 
